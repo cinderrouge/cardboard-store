@@ -1,14 +1,14 @@
 class ProductsController < ApplicationController
-  
+
   def index
     @products = Product.all
   end
 
- 
+
   def new
     @product = Product.new
   end
- 
+
   def edit
     @product = Product.find(params[:id])
   end
@@ -52,6 +52,6 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.fetch(:product, {})
+      params.require(:product).permit(:title, :price)
     end
 end
