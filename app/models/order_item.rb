@@ -17,6 +17,15 @@ class OrderItem < ApplicationRecord
     unit_price * quantity
   end
 
+  def free_shipping
+    if quantity > 10
+      Order.shipping_cost == 0
+    else
+      Order.shipping_cost
+    end
+  end
+
+
   private
 
   def set_unit_price

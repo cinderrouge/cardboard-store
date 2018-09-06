@@ -3,8 +3,14 @@ class Order < ApplicationRecord
   
   before_save :set_subtotal
 
+  SHIPPING = 30
+
   def subtotal
-    order.items.collect {|item| item.valid? ? (item.unit_price*item.quantity) :0}.sum
+    order_items.collect {|item| item.valid? ? (item.unit_price*item.quantity) :0}.sum
+  end
+
+  def shipping_cost
+    self.shipping == SHIPPING
   end
 
   private
