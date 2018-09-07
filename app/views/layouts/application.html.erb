@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
@@ -19,7 +20,7 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><%= link_to "Home", root_path %></li>
-              
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li class="active cart"><%= render 'layouts/cart'%></li>
